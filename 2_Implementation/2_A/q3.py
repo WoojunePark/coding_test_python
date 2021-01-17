@@ -1,6 +1,6 @@
 # input
 input = input()  # input = input().split()  ==> 'a', '1'
-r = int(ord(input[0])) - int(ord('a')) + 1
+r = int(ord(input[0])) - int(ord('a')) + 1  # difference of ascii code from 'a' to r
 c = int(input[1])
 
 # pre
@@ -9,13 +9,13 @@ c = int(input[1])
 moves = [(-1, -2), (1, -2), (-1, 2), (1, 2), (-2, 1), (-2, -1), (2, 1), (2, -1)]
 
 # init
-r_new, c_new = r, c
+# fixed r, c
 number_of_moves = 0
 
 # main + input
 for move in moves:
-    r_new += move[0]
-    c_new += move[1]
+    r_new = r + move[0]
+    c_new = c + move[1]
     if 1 <= r_new <= 8 and 1 <= c_new <= 8:
         number_of_moves += 1
 

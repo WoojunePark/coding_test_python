@@ -8,12 +8,14 @@ cnt = 0
 
 # main + input
 while n != 1:
-    if n % k == 0:
+    leftover = n % k
+
+    if leftover == 0:
         n /= k
         cnt += 1
     else:
-        n -= 1
-        cnt += 1
+        n -= leftover
+        cnt += leftover
 
 # post
 

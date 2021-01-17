@@ -17,7 +17,6 @@ def turn_left():
 
 
 # init
-r_new, c_new = r, c
 visit[r][c] = 1
 cnt_visit = 1
 cnt_turn = 0
