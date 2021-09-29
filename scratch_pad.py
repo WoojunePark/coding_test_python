@@ -1,28 +1,30 @@
-import sys
+# 코딩테스트 연습 > 스택/큐 > 주식가격 (stack 사용)
 
-i = 0
-n = int(sys.stdin.readline().rstrip())
+def solution(prices):
+    # pre / init
+    ans = [0] * len(prices)
+    stack = []
 
-while i < n:
-    a, b = map(int, sys.stdin.readline().rstrip().split())
+    # main
+    for i, p in enumerate(prices):
+        while stack and p < prices[stack[-1]]:
+            # stack에 값이 있고
+            # 이번 p 값이 stack의 top 값보다 작으면
+            j = stack.pop()  # 그 값을 pop해서 j라고 하고
+            ans[j] = i - j
+            # 
+        stack.append(i)
+        # stack:
+        # [] -> [0] -> [1] -> [2] -> [3]
 
-    if i == 0:
-        list = [[a, b]]
-    else:
-        list.append([a, b])
-    i += 1
+    # post: 남아있는 값들 pop
+    while stack:
+        j = stack.pop()
+        ans[j] = len(prices) - 1 - j
 
-t = 0
-j = 0
-current_cost = 0
+    return ans
 
-current_cost_list = sorted(list, key=lambda cost: cost[0], reverse=True)
-print(current_cost_list)
 
-while j < n:
-    current_cost += current_cost_list[j][0]*t + current_cost_list[j][1]
-    t += current_cost
-    j += 1
-
-print(current_cost)
-
+prices = [1, 2, 3, 2, 3]
+ret = solution(prices)
+print(ret)

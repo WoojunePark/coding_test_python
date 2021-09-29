@@ -1,7 +1,9 @@
 import sys
 import heapq
 
-N = int(sys.stdin.readline().rstrip())
+input = sys.stdin.readline
+
+N = int(input().rstrip())
 List = list(map(int, input().split()))
 
 
