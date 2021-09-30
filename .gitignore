@@ -3,3 +3,5 @@
 *.xml
 .idea/
 
+.idea/misc.xml
+.idea/coding_test_python.iml
